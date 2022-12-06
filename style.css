@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500&family=Dancing+Script:wght@500&family=Darker+Grotesque:wght@500&family=EB+Garamond&family=Montserrat:wght@500&family=Poppins&family=Quicksand:wght@500&family=Tinos&family=Ubuntu&family=Zilla+Slab:wght@500&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body {
+  height: auto;
+}
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-track {
+  background-color: darkgray;
+}
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, blue, #f9f871);
+  border-radius: 10px;
+}
+.centers{
+  background-color: #89fae8;
+  font-family: 'Montserrat', sans-serif;
+}
+.head{
+  background-color: #F9F871;
+}
+body {
+    display: grid;
+    grid-template-columns: auto 0px; 
+    height: 1000px;
+  }
+  /* remove the below if you don't want smooth scrolling */
+  html,
+  body {
+    scroll-behavior: smooth;
+  }
+  .top {
+    --offset: 50px; 
+    position: fixed;
+    bottom: 10px;      
+    margin-left:10px; 
+    place-self: end;
+    margin-top: calc(100vh + var(--offset));
+  }
+  .top:before {
+    content:"";
+    position:absolute;
+    /* inset:30%; */
+    transform:translateY(20%) rotate(-45deg);
+  }
+
+/* marquee slide */
+:root {
+    --marquee-width: 100%;
+    /* --marquee-height: 35vh; */
+    /* --marquee-elements: 12; */ /* defined with JavaScript */
+    --marquee-elements-displayed: 5;
+    --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
+    --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
+  }
+.marquee {
+    width: var(--marquee-width);
+    height: var(--marquee-height);
+    background-color: #111;
+    color: #eee;
+    overflow: hidden;
+    position: relative;
+  }
+  .marquee:before, .marquee:after {
+    position: absolute;
+    top: 0;
+    width: 10rem;
+    height: 100%;
+    content: "";
+    z-index: 1;
+  }
+  .marquee:before {
+    left: 0;
+    background: linear-gradient(to right, #111 0%, transparent 100%);
+  }
+  .marquee:after {
+    right: 0;
+    background: linear-gradient(to left, #111 0%, transparent 100%);
+  }
+  .marquee-content {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    animation: scrolling var(--marquee-animation-duration) linear infinite;
+  }
+  /* .marquee-content:hover {
+    animation-play-state: paused;
+  } */
+  @keyframes scrolling {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements))); }
+  }
+  .marquee-content li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+    flex-shrink: 0;
+    width: var(--marquee-element-width);
+    max-height: 100%;
+    font-size: calc(var(--marquee-height)*3/4); /* 5rem; */
+    white-space: nowrap;
+  }
+  
+  .marquee-content li img {
+    width: 100%;
+    height: 100%;
+    border: 4px solid #eee;
+    object-fit: coverj;
+  }
+
+
